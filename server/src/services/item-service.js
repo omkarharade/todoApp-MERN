@@ -1,4 +1,4 @@
-import ItemRepository from "../repository/item-repository";
+import ItemRepository from "../repository/item-repository.js";
 
 class ItemService {
 	constructor() {
@@ -10,6 +10,15 @@ class ItemService {
 			console.log(data);
 			const user = await this.itemRepository.create(data);
 			return user;
+		} catch (error) {
+			throw error;
+		}
+	}
+
+	async getAll(userId) {
+		try {
+			const todoItems = await this.itemRepository.getAll(userId);
+			return todoItems;
 		} catch (error) {
 			throw error;
 		}

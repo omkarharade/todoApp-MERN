@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { SALT, JWT_SECRET_STRING } from "../config/serverConfig";
+import { SALT, JWT_SECRET_STRING } from "../config/serverConfig.js";
 
 const userSchema = new mongoose.Schema(
 	{
@@ -19,9 +19,15 @@ const userSchema = new mongoose.Schema(
 );
 
 userSchema.pre("save", function (next) {
+	console.log("in presave");
+	console.log("this", this);
 	const user = this;
 	const encryptedPassword = bcrypt.hashSync(user.password, SALT);
+
+	console.log("in-encrypted password", encryptedPassword);
 	user.password = encryptedPassword;
+
+	console.log("user", user);
 	next();
 });
 

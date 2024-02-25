@@ -1,5 +1,5 @@
-import TodoItem from "../models/item";
-import CrudRepository from "./crud-repository";
+import TodoItem from "../models/item.js";
+import CrudRepository from "./crud-repository.js";
 
 class ItemRepository extends CrudRepository {
 	constructor() {
@@ -8,7 +8,7 @@ class ItemRepository extends CrudRepository {
 
 	async getAll(userId) {
 		try {
-			const result = await TodoItem.findById(id);
+			const result = await TodoItem.find({ userId: userId });
 			return result;
 		} catch (error) {
 			console.log("Something went wrong in the item-repository");

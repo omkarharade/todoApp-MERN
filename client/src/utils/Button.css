@@ -1,0 +1,50 @@
+.btn,
+.btn:link,
+.btn:visited {
+	font-family: "Montserrat", sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 1rem 3rem;
+	display: inline-block;
+	border-radius: 10rem;
+	transition: all 0.2s;
+	position: relative;
+	border: none;
+	cursor: pointer;
+}
+
+.enter-credentials-btn {
+	width: 75%;
+	border: 2px solid #2980b9;
+	margin: 1rem 0;
+}
+
+.login-btn {
+	margin: 0 2rem;
+	font-weight: 500;
+	color: white;
+	background-color: #2980b9;
+	border: 3px solid #2980b9;
+}
+
+.login-btn:hover {
+	background-color: #1e3050;
+}
+
+.signup-btn {
+	margin: 0 2rem;
+	font-weight: 500;
+	color: #2980b9;
+	border: 3px solid #2980b9;
+}
+.signup-btn:hover {
+	color: white;
+	background-color: #2980b9;
+	border-color: #1e3050;
+}
+
+@media screen and (max-width: 800px) {
+	.login-btn .signup-btn {
+		margin: 2rem 0;
+	}
+}

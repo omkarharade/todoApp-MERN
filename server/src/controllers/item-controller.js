@@ -1,4 +1,4 @@
-import { ItemService } from "../services";
+import { ItemService } from "../services/index.js";
 
 const itemService = new ItemService();
 
@@ -6,6 +6,7 @@ export const createItem = async (req, res) => {
 	try {
 		const response = await itemService.create({
 			title: req.body.title,
+			userId: req.user.id,
 		});
 
 		return res.status(201).json({
@@ -17,6 +18,26 @@ export const createItem = async (req, res) => {
 	} catch (err) {
 		return res.status(500).json({
 			message: "todo-item cannot be created",
+			data: {},
+			success: false,
+			err: err,
+		});
+	}
+};
+
+export const getAllTodoItems = async (req, res) => {
+	try {
+		const response = await itemService.getAll(req.user.id);
+
+		return res.status(201).json({
+			success: true,
+			message: "successfully fetched all todo-items",
+			data: response,
+			err: {},
+		});
+	} catch (err) {
+		return res.status(500).json({
+			message: "failed to fetch all todo-items",
 			data: {},
 			success: false,
 			err: err,
@@ -53,9 +74,7 @@ export const updateItem = async (req, res) => {
 
 export const deleteItem = async (req, res) => {
 	try {
-		const response = await itemService.destroy({
-			id: req.body.itemId,
-		});
+		const response = await itemService.destroy(req.params.id);
 
 		return res.status(200).json({
 			success: true,

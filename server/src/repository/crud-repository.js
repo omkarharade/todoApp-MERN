@@ -5,7 +5,9 @@ class CrudRepository {
 
 	async create(data) {
 		try {
+			console.log(this.model);
 			const result = await this.model.create(data);
+			console.log("result", result);
 			return result;
 		} catch (error) {
 			console.log("Something went wrong in crud repo");
@@ -15,7 +17,8 @@ class CrudRepository {
 
 	async destroy(id) {
 		try {
-			const result = await this.model.findByIdAndRemove(id);
+			console.log("id inside repo -> ", id);
+			const result = await this.model.findByIdAndDelete(id);
 			return result;
 		} catch (error) {
 			console.log("Something went wrong in crud repo");
