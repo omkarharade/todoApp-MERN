@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
+import axios from "axios";
 import InputArea from "../../utils/InputArea";
 import Button from "../../utils/Button";
 import Signup from "../Signup/Signup";
@@ -7,6 +8,8 @@ import "../../assets/BasicStyles.css";
 import "./Signup.css";
 
 function Login() {
+	const navigate = useNavigate();
+
 	const [emailInput, setEmailInput] = useState("email@host.com");
 	const [passwordInput, setPasswordInput] = useState("");
 
@@ -30,8 +33,6 @@ function Login() {
 	function handleEmailInputChange(email) {
 		setEmailInput(email);
 
-		let regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-
 		if (_validateEmail(email)) {
 			setEmailValError("");
 		} else {
@@ -51,8 +52,35 @@ function Login() {
 		}
 	}
 
+	const onSignup = async (e) => {
+		e.preventDefault();
+		alert("button clicked");
+
+		const email = emailInput;
+		const password = passwordInput;
+
+		const emailIsValid = _validateEmail(email);
+		const passwordIsValid = _validatePassword(password);
+
+		if (!emailIsValid) {
+			setEmailValError("invalid email please try again");
+		}
+		if (!passwordIsValid) {
+			setPasswordValError("weak password, please try again");
+		}
+
+		if (emailIsValid && passwordIsValid) {
+			await axios
+				.post("http://localhost:5000/api/v1/signup", { email, password })
+				.then((response) => {
+					console.log(response.data);
+					navigate("/my-list");
+				});
+		}
+	};
+
 	return (
-		<div className="signup-div px-20 py-8 rounded-xl">
+		<div className=" card signup-div px-20 py-8 rounded-xl">
 			<div className="input-header">
 				<h2 className="text-2xl">Signup </h2>
 				<p>
@@ -89,7 +117,11 @@ function Login() {
 			</div>
 
 			<div className="input-field">
-				<Button className="w-75 enter-credentials-btn" name="Sign Up" />
+				<Button
+					className="w-75 enter-credentials-btn"
+					name="Sign Up"
+					onClick={onSignup}
+				/>
 			</div>
 		</div>
 	);

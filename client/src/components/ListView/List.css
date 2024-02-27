@@ -1,0 +1,27 @@
+.todo-div {
+	background-color: var(--primary-white);
+	padding: 3rem;
+	border-radius: 15px;
+	max-width: 80vw;
+}
+
+.task-div {
+	max-width: 30rem;
+	margin: 2rem 3rem;
+	border: solid 2px var(--primary-blue);
+}
+
+.task-title {
+}
+
+.task-status {
+	border: 2px solid var(--primary-blue-dark);
+	border-radius: 10px;
+	max-width: 7rem;
+	padding: 0.5rem 1rem;
+}
+
+.task-status:hover {
+	color: white;
+	background-color: var(--primary-blue);
+}

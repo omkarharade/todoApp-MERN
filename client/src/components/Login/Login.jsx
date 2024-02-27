@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
+import axios from "axios";
 import InputArea from "../../utils/InputArea";
 import Button from "../../utils/Button";
 import Signup from "../Signup/Signup";
@@ -7,11 +8,54 @@ import "../../assets/BasicStyles.css";
 import "./Login.css";
 
 function Login() {
+	const navigate = useNavigate();
 	const [emailInput, setEmailInput] = useState("email@host.com");
 	const [passwordInput, setPasswordInput] = useState("");
 
 	const [emailValError, setEmailValError] = useState("");
 	const [passwordValError, setPasswordValError] = useState("");
+
+	function _validateEmail(email) {
+		let regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+
+		if (regex.test(email) || email === "") return true;
+		else return false;
+	}
+
+	function _validatePassword(password) {
+		let regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/;
+
+		if (regex.test(password)) return true;
+		else return false;
+	}
+
+	const onLogin = async (e) => {
+		e.preventDefault();
+		alert("login button clicked");
+
+		const email = emailInput;
+		const password = passwordInput;
+
+		const emailIsValid = _validateEmail(email);
+		const passwordIsValid = _validatePassword(password);
+
+		if (!emailIsValid) {
+			setEmailValError("invalid email please try again");
+		}
+		if (!passwordIsValid) {
+			setPasswordValError("weak password, please try again");
+		}
+
+		if (emailIsValid && passwordIsValid) {
+			await axios
+				.post("http://localhost:5000/api/v1/login", { email, password })
+				.then((response) => {
+					const token = response.data.data;
+					localStorage.setItem("access", token);
+					navigate("/my-list");
+				});
+		}
+	};
 
 	function handleEmailInputChange(email) {
 		setEmailInput(email);
@@ -36,10 +80,10 @@ function Login() {
 	}
 
 	return (
-		<div className="login-div px-20 py-8 rounded-xl">
-			<div className="input-header text-2xl">
-				<h2>Login </h2>
-				<p className="text-xl">
+		<div className=" card login-div px-20 py-8 rounded-xl">
+			<div className="input-header">
+				<h2 className="text-2xl">Login </h2>
+				<p>
 					or{" "}
 					<Link to="/signup" className="blue-highlight">
 						create a new account
@@ -72,7 +116,11 @@ function Login() {
 			</div>
 
 			<div className="input-field">
-				<Button className="w-75 enter-credentials-btn" name="Login" />
+				<Button
+					className="w-75 enter-credentials-btn"
+					name="Login"
+					onClick={onLogin}
+				/>
 			</div>
 		</div>
 	);
