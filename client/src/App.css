@@ -1,3 +1,39 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	-webkit-box-sizing: inherit;
+}
+
+html {
+	/* @include respond(tab-land) { 
+        font-size: 56.25%; 
+    }
+
+    
+
+    @include respond(tab-port) { // width < 900?
+        font-size: 50%; //1 rem = 8px, 8/16 = 50%
+    }
+    
+    @include respond(big-desktop) {
+        font-size: 75%; //1rem = 12, 12/16
+    } */
+
+	@media screen and (min-width: 600px) {
+		/* h2 {
+			color: red;
+		} */
+	}
+}
+
+body {
+	font-family: "Montserrat", sans-serif;
+	background-color: var(--primary-blue);
+}
+
 .App {
 	box-sizing: border-box;
 	width: 90%;

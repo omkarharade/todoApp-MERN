@@ -1,0 +1,11 @@
+.login-div {
+	background-color: var(--primary-card-background);
+}
+.input-header {
+	margin-bottom: 3rem;
+}
+
+.input-field {
+	max-width: 18rem;
+	margin: 0.5rem 0;
+}

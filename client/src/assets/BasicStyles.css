@@ -1,0 +1,53 @@
+/* -------width------ */
+.w-10 {
+	width: 10%;
+}
+.w-15 {
+	width: 10%;
+}
+.w-75 {
+	width: 75%;
+}
+
+/* ----------- margin --------------------------------- */
+
+.margin-td-4 {
+	margin: 4rem 0;
+}
+
+/* ------------ style highlighting ----------------- */
+
+.blue-highlight {
+	color: var(--primary-blue);
+	text-decoration: none;
+}
+
+/* -------common divs ------------- */
+.sliding-div {
+	position: fixed;
+	top: 0;
+	right: 0;
+	min-width: 40rem;
+	max-width: 50rem;
+	height: 100vh;
+	background-color: white;
+	padding: 3rem 0 0 5rem;
+}
+
+.fixed-transparent-div {
+	top: 0;
+	right: 0;
+	height: 100vh;
+	width: 100vw;
+	background-color: rgba(0, 0, 0, 0.382);
+	position: fixed;
+}
+
+.card-basic {
+	margin: 3rem auto;
+	border-radius: 10px;
+	max-width: 30rem;
+	background-color: var(--primary-white);
+	text-align: center;
+	padding: 0 2rem;
+}

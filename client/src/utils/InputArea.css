@@ -1,0 +1,10 @@
+.input-area {
+	height: 20px;
+	padding: 1rem 1rem;
+	border: solid 2px var(--primary-blue);
+	border-radius: 5px;
+}
+
+.input-area:focus {
+	border: solid 2px "#2980b9";
+}

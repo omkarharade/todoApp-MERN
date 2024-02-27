@@ -16,11 +16,11 @@ function Landing() {
 
 	return (
 		<div className="landing-card">
-			<h2 className="h2-medium-text">
+			<h2 className="h2-medium-text text-xl m-5">
 				Organize your day with our todo list now
 			</h2>
-			<Button onClick={handleLogin} className="signup-btn" label="Login" />
-			<Button onClick={handleSignup} className="login-btn" label="Signup" />
+			<Button onClick={handleLogin} className="signup-btn" name="Login" />
+			<Button onClick={handleSignup} className="login-btn" name="Signup" />
 		</div>
 	);
 }

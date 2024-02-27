@@ -15,16 +15,22 @@
 
 .enter-credentials-btn {
 	width: 75%;
-	border: 2px solid #2980b9;
+	border: 2px solid var(--primary-blue);
 	margin: 1rem 0;
+	background-color: var(--primary-white);
+}
+
+.enter-credentials-btn:hover {
+	background-color: var(--primary-blue);
+	color: var(--primary-white);
 }
 
 .login-btn {
 	margin: 0 2rem;
 	font-weight: 500;
 	color: white;
-	background-color: #2980b9;
-	border: 3px solid #2980b9;
+	background-color: var(--primary-blue);
+	border: 3px solid var(--primary-blue);
 }
 
 .login-btn:hover {
@@ -34,12 +40,12 @@
 .signup-btn {
 	margin: 0 2rem;
 	font-weight: 500;
-	color: #2980b9;
-	border: 3px solid #2980b9;
+	color: var(--primary-blue);
+	border: 3px solid var(--primary-blue);
 }
 .signup-btn:hover {
 	color: white;
-	background-color: #2980b9;
+	background-color: var(--primary-blue);
 	border-color: #1e3050;
 }
 
