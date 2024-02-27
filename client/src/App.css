@@ -33,12 +33,3 @@ body {
 	font-family: "Montserrat", sans-serif;
 	background-color: var(--primary-blue);
 }
-
-.App {
-	box-sizing: border-box;
-	width: 90%;
-	height: 50rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}

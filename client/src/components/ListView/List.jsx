@@ -64,9 +64,9 @@ function List() {
 	};
 
 	return (
-		<>
-			<div className="todo-div ">
-				<ul className="flex flex-row flex-wrap justify-center ">
+		<div className="flex justify-center items-center my-10">
+			<div className="todo-div">
+				<ul className="flex flex-row flex-wrap items-stretch ">
 					{todolist.map((task) => {
 						return (
 							<div className=" task-div card">
@@ -101,7 +101,7 @@ function List() {
 					</li>
 				</ul>
 			</div>
-		</>
+		</div>
 	);
 }
 
