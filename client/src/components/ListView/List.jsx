@@ -129,7 +129,8 @@ function List() {
 	return (
 		<>
 			<div className="flex justify-center items-center my-10 flex-col">
-				<div>
+				<div className="flex flex-row mb-10">
+					<i className="py-8 rounded-full px-5 bg-white fa-solid fa-lg fa-magnifying-glass"></i>
 					<InputArea
 						type={"text"}
 						inputValue={searchQuery}
