@@ -3,11 +3,11 @@ import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import axios from "axios";
 import InputArea from "../../utils/InputArea";
 import Button from "../../utils/Button";
-import Signup from "../Signup/Signup";
 import "../../assets/BasicStyles.css";
 import "./Signup.css";
+import Login from "../Login/Login";
 
-function Login() {
+function Signup() {
 	const navigate = useNavigate();
 
 	const [emailInput, setEmailInput] = useState("email@host.com");
@@ -93,7 +93,7 @@ function Login() {
 			</div>
 
 			<Routes>
-				<Route path="/signup" element={<Signup />} />
+				<Route path="/login" element={<Login />} />
 			</Routes>
 
 			<div className="input-field">
@@ -127,4 +127,4 @@ function Login() {
 	);
 }
 
-export default Login;
+export default Signup;

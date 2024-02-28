@@ -11,6 +11,7 @@
 	position: relative;
 	border: none;
 	cursor: pointer;
+	max-width: 6rem;
 }
 
 .enter-credentials-btn {

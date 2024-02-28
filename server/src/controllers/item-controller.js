@@ -45,15 +45,33 @@ export const getAllTodoItems = async (req, res) => {
 	}
 };
 
+export const getAllTodoPaginateItems = async (req, res) => {
+	try {
+		console.log("controller-query", req.query);
+		const response = await itemService.getAllPaginated(req.user.id, req.query);
+
+		return res.status(201).json({
+			success: true,
+			message: "successfully fetched all todo-items",
+			data: response,
+			err: {},
+		});
+	} catch (err) {
+		return res.status(500).json({
+			message: "failed to fetch all todo-items",
+			data: {},
+			success: false,
+			err: err,
+		});
+	}
+};
+
 export const updateItem = async (req, res) => {
 	try {
-		const response = await itemService.update({
-			itemId: req.body.itemId,
-
-			data: {
-				title: req.body.title,
-				completed: req.body.completed,
-			},
+		console.log(req.params.id);
+		const response = await itemService.update(req.params.id, {
+			title: req.body.title,
+			completed: req.body.completed,
 		});
 
 		return res.status(200).json({

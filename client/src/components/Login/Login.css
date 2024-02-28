@@ -1,5 +1,6 @@
 .login-div {
 	background-color: var(--primary-card-background);
+	margin: 5rem 0rem;
 }
 .input-header {
 	margin-bottom: 3rem;

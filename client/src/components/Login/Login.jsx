@@ -80,7 +80,7 @@ function Login() {
 	}
 
 	return (
-		<div className=" card login-div px-20 py-8 rounded-xl">
+		<div className=" my-15 card login-div px-20 py-8 rounded-xl">
 			<div className="input-header">
 				<h2 className="text-2xl">Login </h2>
 				<p>

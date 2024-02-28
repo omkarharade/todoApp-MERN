@@ -15,7 +15,7 @@ function Landing() {
 	};
 
 	return (
-		<div className="card landing-card ">
+		<div className="card landing-card">
 			<h2 className="h2-medium-text text-xl m-5">
 				Organize your day with our todo list now
 			</h2>

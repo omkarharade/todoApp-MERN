@@ -24,7 +24,20 @@ class ItemService {
 		}
 	}
 
-	async update(data) {
+	async getAllPaginated(userId, query) {
+		try {
+			console.log("services-query", query);
+			const todoItems = await this.itemRepository.getAllPaginated(
+				userId,
+				query
+			);
+			return todoItems;
+		} catch (error) {
+			throw error;
+		}
+	}
+
+	async update(itemId, data) {
 		try {
 			console.log(data);
 			const user = await this.itemRepository.update(itemId, data);
