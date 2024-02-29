@@ -6,6 +6,7 @@ Basic MERN stack todolist app for regular usage.
 
 - Clone or download the repo. into your local system.
 - go to the project folder
+- make sure node and mongo db is installed in your system
 
 ```
 cd todoApp-MERN/
@@ -24,8 +25,6 @@ cd todoApp-MERN/
 
 ```
 JWT_SECRET_STRING=<JWT secret key (add any string)>
-DB_NAME="todolistDB"
-DB_PASSWORD=<db password>
 PORT=<port number>
 ```
 
