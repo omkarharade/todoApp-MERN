@@ -42,7 +42,7 @@ function List() {
 
 			return response.data.success;
 		} catch (error) {
-			"error fetching the dataconsole.log", error;
+			console.log("error fetching the dataconsole.log", error);
 		}
 	};
 
