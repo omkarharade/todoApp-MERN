@@ -7,7 +7,6 @@ class ItemService {
 
 	async create(data) {
 		try {
-			console.log(data);
 			const user = await this.itemRepository.create(data);
 			return user;
 		} catch (error) {
@@ -26,7 +25,6 @@ class ItemService {
 
 	async getAllPaginated(userId, query) {
 		try {
-			console.log("services-query", query);
 			const todoItems = await this.itemRepository.getAllPaginated(
 				userId,
 				query
@@ -39,7 +37,6 @@ class ItemService {
 
 	async update(itemId, data) {
 		try {
-			console.log(data);
 			const user = await this.itemRepository.update(itemId, data);
 			return user;
 		} catch (error) {

@@ -21,8 +21,6 @@ class ItemRepository extends CrudRepository {
 			const limit = query.size;
 			const offset = (query.page - 1) * query.size;
 
-			console.log("query", query);
-
 			if (query.page == 0) throw "PAGE NUMBER INVALID TRY AGAIN";
 
 			const result = await TodoItem.find({ userId: userId })

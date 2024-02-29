@@ -9,7 +9,6 @@ function AddTask() {
 	const navigate = useNavigate();
 
 	function handleChange(e) {
-		console.log(e.target.value);
 		setNewTask(e.target.value);
 	}
 

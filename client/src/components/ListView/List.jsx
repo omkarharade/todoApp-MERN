@@ -34,9 +34,6 @@ function List() {
 					Authorization: "Bearer " + localStorage.getItem("access"),
 				},
 			});
-			// console.log("res data : ", response);
-			// console.log("data : ", response.data);
-			// console.log("list data : ", response.data.data);
 
 			if (response.data.success) {
 				const listData = response.data.data;
@@ -45,7 +42,7 @@ function List() {
 
 			return response.data.success;
 		} catch (error) {
-			console.log("error fetching the data", error);
+			"error fetching the dataconsole.log", error;
 		}
 	};
 
@@ -63,9 +60,6 @@ function List() {
 	};
 
 	const updateTaskStatus = async (task) => {
-		console.log("task.completed", task.completed);
-		console.log("task.title", task.title);
-
 		await axios.patch(
 			`http://localhost:5000/api/v1/items/${task._id}`,
 			{ completed: !task.completed },
@@ -113,7 +107,6 @@ function List() {
 	}
 
 	function searchTask(query) {
-		console.log("query", query);
 		setSearchQuery(query);
 
 		let searchResults = todolist.filter((task) => {
