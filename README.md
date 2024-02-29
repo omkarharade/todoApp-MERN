@@ -23,10 +23,10 @@ cd todoApp-MERN/
 
 - create a .env file and add these variables
 
-```
-JWT_SECRET_STRING=<JWT secret key (add any string)>
-PORT=<port number>
-```
+  ```
+  JWT_SECRET_STRING=<JWT secret key (add any string)>
+  PORT=<port number>
+  ```
 
 - to start the server run the following command
 
@@ -80,84 +80,85 @@ PORT=<port number>
 
 ### A. Create User
 
-Send POST request to create a user using email and password
+- Send POST request to create a user using email and password
 
-```
-Method: POST
-URL: /api/v1/signup/
-Produces: application/json
-```
+  ```
+  Method: POST
+  URL: /api/v1/signup/
+  Produces: application/json
+  ```
 
-Body:
+  Body:
 
-| Field    |  Type  | Required | Description      |
-| -------- | :----: | -------- | ---------------- |
-| email    | string | true     | email of user    |
-| password | string | true     | password of user |
+  | Field    |  Type  | Required | Description      |
+  | -------- | :----: | -------- | ---------------- |
+  | email    | string | true     | email of user    |
+  | password | string | true     | password of user |
 
-#### Example :
+  #### Example :
 
-**Request** : /api/v1/signup
+  **Request** : /api/v1/signup
 
-**Body** :
+  **Body** :
 
-| Field    |     value      |
-| -------- | :------------: |
-| email    | user@gmail.com |
-| password |   User@1234    |
+  | Field    |     value      |
+  | -------- | :------------: |
+  | email    | user@gmail.com |
+  | password |   User@1234    |
 
-- **Response**:
+  - **Response**:
 
   ```
   {
-    "success": true,
-    "message": "Successfully created a new user",
-    "data": {
-        "email": "user@gmail.com",
-        "password": "$2b$10$uzXecnjwVHy5D67F4Q1LIO4oAsn6/kyphmJ9sCZga7xYn/U/vgS5e",
-        "_id": "65e00bce98d8fe85eefee70c",
-        "createdAt": "2024-02-29T04:45:02.416Z",
-        "updatedAt": "2024-02-29T04:45:02.416Z",
-        "__v": 0
-    },
-    "err": {}
+      "success": true,
+      "message": "Successfully created a new user",
+      "data": {
+          "email": "user@gmail.com",
+          "password": "$2b$10$uzXecnjwVHy5D67F4Q1LIO4oAsn6/kyphmJ9sCZga7xYn/U/vgS5e",
+          "_id": "65e00bce98d8fe85eefee70c",
+          "createdAt": "2024-02-29T04:45:02.416Z",
+          "updatedAt": "2024-02-29T04:45:02.416Z",
+          "__v": 0
+      },
+      "err": {}
   }
   ```
 
-  ### B. Login User (Generate Token)
+### B. Login User (Generate Token)
 
-Send POST request to generate token using email and password
+- Send POST request to generate token using email and password
 
-```
-Method: POST
-URL: /api/v1/login/
-Produces: application/json
-```
+  ```
+  Method: POST
+  URL: /api/v1/login/
+  Produces: application/json
+  ```
 
-Body:
+  Body:
 
-| Field    |  Type  | Required | Description      |
-| -------- | :----: | -------- | ---------------- |
-| email    | string | true     | email of user    |
-| password | string | true     | password of user |
+  | Field    |  Type  | Required | Description      |
+  | -------- | :----: | -------- | ---------------- |
+  | email    | string | true     | email of user    |
+  | password | string | true     | password of user |
 
-#### Example :
+  #### Example :
 
-**Request** : /api/v1/login
+  **Request** : /api/v1/login
 
-**Body** :
+  **Body** :
 
-| Field    |     value      |
-| -------- | :------------: |
-| email    | user@gmail.com |
-| password |   User@1234    |
+  | Field    |     value      |
+  | -------- | :------------: |
+  | email    | user@gmail.com |
+  | password |   User@1234    |
 
-- **Response**:
+  - **Response**:
+
   ```
   {
-    "success": true,
-    "message": "Successfully logged in",
-    "data": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTAwYmNlOThkOGZlODVlZWZlZTcwYyIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJpYXQiOjE3MDkxODIyODIsImV4cCI6MTcwOTE4NTg4Mn0.kF6C5podK0fBeHUPeI-2wbG4Fpalsl6QR-SmAX6gjLs",
-    "err": {}
+      "success": true,
+      "message": "Successfully logged in",
+      "data": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTAwYmNlOThkOGZlODVlZWZlZTcwYyIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJpYXQiOjE3MDkxODIyODIsImV4cCI6MTcwOTE4NTg4Mn0.kF6C5podK0fBeHUPeI-2wbG4Fpalsl6QR-SmAX6gjLs",
+      "err": {}
   }
   ```
