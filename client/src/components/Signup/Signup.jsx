@@ -54,7 +54,6 @@ function Signup() {
 
 	const onSignup = async (e) => {
 		e.preventDefault();
-		alert("button clicked");
 
 		const email = emailInput;
 		const password = passwordInput;
@@ -70,12 +69,20 @@ function Signup() {
 		}
 
 		if (emailIsValid && passwordIsValid) {
-			await axios
-				.post("http://localhost:5000/api/v1/signup", { email, password })
-				.then((response) => {
-					console.log(response.data);
-					navigate("/my-list");
-				});
+			try {
+				await axios
+					.post("http://localhost:5000/api/v1/signup", { email, password })
+					.then((response) => {
+						console.log(response.data);
+
+						if (!response.data.data.errorLog) {
+							navigate("/my-list");
+						} else {
+							console.log(response.data.data.errorLog);
+							setEmailValError(response.data.data.errorLog);
+						}
+					});
+			} catch (error) {}
 		}
 	};
 

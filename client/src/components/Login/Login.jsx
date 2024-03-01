@@ -31,7 +31,6 @@ function Login() {
 
 	const onLogin = async (e) => {
 		e.preventDefault();
-		alert("login button clicked");
 
 		const email = emailInput;
 		const password = passwordInput;

@@ -7,8 +7,15 @@ class UserService {
 
 	async signup(data) {
 		try {
-			const user = await this.userRepository.create(data);
-			return user;
+			const userByEmail = await this.getUserByEmail(data.email);
+			if (!userByEmail) {
+				const user = await this.userRepository.create(data);
+				return user;
+			} else {
+				return {
+					errorLog: "user with same email already exists",
+				};
+			}
 		} catch (error) {
 			throw error;
 		}
