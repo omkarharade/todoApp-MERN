@@ -19,7 +19,7 @@ function Signup() {
 	function _validateEmail(email) {
 		let regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
-		if (regex.test(email) || email === "") return true;
+		if (regex.test(email) && email !== "") return true;
 		else return false;
 	}
 

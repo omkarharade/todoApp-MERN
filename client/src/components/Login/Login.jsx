@@ -18,7 +18,7 @@ function Login() {
 	function _validateEmail(email) {
 		let regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
-		if (regex.test(email) || email === "") return true;
+		if (regex.test(email) && email !== "") return true;
 		else return false;
 	}
 
@@ -50,6 +50,7 @@ function Login() {
 				.post("http://localhost:5000/api/v1/login", { email, password })
 				.then((response) => {
 					const token = response.data.data;
+					localStorage.removeItem("access");
 					localStorage.setItem("access", token);
 					navigate("/my-list");
 				});
